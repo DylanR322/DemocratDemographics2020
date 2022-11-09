@@ -14,9 +14,9 @@ library(gghighlight)
 
 rm(list = ls())
 
-setwd("~/Desktop/ThingsToGoInGitHub/psci-107-project/Code & Data/Data/Clean Data/")
-ce <- import("~/Desktop/ThingsToGoInGitHub/psci-107-project/Code & Data/Data/Clean Data/2016-2020Election&CensusData.Rdata")
-ce.full <- import("~/Desktop/ThingsToGoInGitHub/psci-107-project/Code & Data/Data/Clean Data/Full2016-2020Election&CensusData.Rdata")
+setwd("~/Desktop/GitHub/psci-107-project/Code & Data/Data/Clean Data/")
+ce <- import("~/Desktop/GitHub/psci-107-project/Code & Data/Data/Clean Data/2016-2020Election&CensusData.Rdata")
+ce.full <- import("~/Desktop/GitHub/psci-107-project/Code & Data/Data/Clean Data/Full2016-2020Election&CensusData.Rdata")
 
 # Filter out Pennsylvania since they had redistricting in 2018, and NC for the same reason in 2019
 
