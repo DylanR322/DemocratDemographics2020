@@ -7,10 +7,15 @@ library(plyr)
 library(dplyr)
 library(tidyr)
 
+rm(list = ls())
+
+setwd("~/Desktop/GitHub/psci-107-project/Code & Data/Data/")
+# NOTE: If running this code on a different computer or with different file structure, adjust your working directory accordingly.
+
 
 ## First, let's clean the 2020 Data
 
-e20 <- import("~/Desktop/GitHub/psci-107-project/Code & Data/Data/2020-11-03.RDS") 
+e20 <- import("2020-11-03.RDS") 
 # note, the above address and all other addresses in import must be changed if this data is downloaded onto another computer 
 
 e20 <- e20$cnty
@@ -65,7 +70,7 @@ e20 <- ddply(e20, .(district.id), summarize, dem.20 = sum(Dem, na.rm = T), rep.2
 ### (2016) Follow the Same Process! --------------------
 # No commenting, because the process is identical since the data is from the same source, in the same format.
 
-e16 <- import("~/Desktop/GitHub/psci-107-project/Code & Data/Data/2016-11-08.RDS")
+e16 <- import("2016-11-08.RDS")
 
 e16 <- e16$cnty
 
@@ -94,7 +99,7 @@ e16 <- ddply(e16, .(district.id), summarize, dem.16 = sum(Dem, na.rm = T), rep.1
 ### (2018) Follow the Same Process! --------------------
 # No commenting, because the process is identical since the data is from the same source, in the same format.
 
-e18 <- import("~/Desktop/GitHub/psci-107-project/Code & Data/Data/2018-11-06.RDS")
+e18 <- import("2018-11-06.RDS")
 
 e18 <- e18$cnty
 
@@ -171,7 +176,7 @@ leans.and.shifts <- elections[, c(1, 14:19)]
 
 # Load in the data
 
-acs <- read.csv("~/Desktop/GitHub/psci-107-project/Code & Data/Data/ACS2014-2018.csv")
+acs <- read.csv("ACS2014-2018.csv")
 acs.orig <- acs
 
 ## Get rid of extra columns that are blank or repeats.
@@ -255,7 +260,8 @@ census.and.elect.full <- merge(elections, acs, by = "district.id", all.x = T)
 
 # Save the datasets!
 
-save(census.and.elect, file="~/Desktop/GitHub/psci-107-project/CleanData/2016-2020Election&CensusData.Rdata")
-save(census.and.elect.full, file="~/Desktop/GitHub/psci-107-project/CleanData/Full2016-2020Election&CensusData.Rdata")
+setwd("~/Desktop/GitHub/psci-107-project/Code & Data/Data/Clean Data/") # set it to save in the right location
+save(census.and.elect, file="2016-2020Election&CensusData.Rdata")
+save(census.and.elect.full, file="Full2016-2020Election&CensusData.Rdata")
 
 # That's all for cleaning!

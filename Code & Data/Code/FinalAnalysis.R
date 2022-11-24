@@ -15,8 +15,10 @@ library(gghighlight)
 rm(list = ls())
 
 setwd("~/Desktop/GitHub/psci-107-project/Code & Data/Data/Clean Data/")
-ce <- import("~/Desktop/GitHub/psci-107-project/Code & Data/Data/Clean Data/2016-2020Election&CensusData.Rdata")
-ce.full <- import("~/Desktop/GitHub/psci-107-project/Code & Data/Data/Clean Data/Full2016-2020Election&CensusData.Rdata")
+# NOTE: If running this code on a different computer or with different file structure, adjust your working directory accordingly.
+
+ce <- import("2016-2020Election&CensusData.Rdata")
+ce.full <- import("Full2016-2020Election&CensusData.Rdata")
 
 # Filter out Pennsylvania since they had redistricting in 2018, and NC for the same reason in 2019
 
@@ -119,6 +121,9 @@ names(regressions)
 regressions <- regressions[, c(1:4, 15:16, 5:14)]
 
 ### Plots --------------------
+
+# First, adjust the working directory so that the files get output to the correct location.
+setwd("~/Desktop/GitHub/psci-107-project/Code & Data/Figures/")
 
 # Reformat the data a little bit
 
